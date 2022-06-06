@@ -9,6 +9,7 @@ const createUser = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
+  console.log(req.params);
   const {
     params: { id: userAddress },
   } = req;

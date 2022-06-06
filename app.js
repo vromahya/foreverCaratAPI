@@ -32,14 +32,12 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 
+
+
 // routes
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/query', queryRouter);
 app.use('/api/v1/user', userRouter);
-
-app.use('/', (req, res) => {
-  res.send('Forever Carat API');
-});
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
