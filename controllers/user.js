@@ -1,7 +1,7 @@
 const User = require('../models/User');
 
 const { StatusCodes } = require('http-status-codes');
-const { BadRequestError, NotFoundError } = require('../errors');
+const { NotFoundError } = require('../errors');
 
 const createUser = async (req, res) => {
   const user = await User.create(req.body);
@@ -13,7 +13,10 @@ const getUser = async (req, res) => {
   const {
     params: { id: userAddress },
   } = req;
-  const user = await User.findOne({ address: userAddress });
+  console.log(userAddress);
+  const user = await User.findOne({
+    address: userAddress,
+  });
   if (!user) {
     throw new NotFoundError(`No user with address ${userAddress}`);
   }
@@ -36,7 +39,9 @@ const updateUser = async (req, res) => {
     params: { id: userAddress },
   } = req;
 
-  const user = await User.findOneAndUpdate({ address: userAddress }, req.body);
+  const user = await User.findOneAndUpdate({ address: userAddress }, req.body, {
+    new: true,
+  });
   if (!user) {
     throw new NotFoundError(`No user with address ${userAddress}`);
   }
