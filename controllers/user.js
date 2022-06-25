@@ -14,11 +14,12 @@ const getUser = async (req, res) => {
     params: { id: userAddress },
   } = req;
   console.log(userAddress);
-  const user = await User.findOne({
+  let user = await User.findOne({
     address: userAddress,
   });
   if (!user) {
-    throw new NotFoundError(`No user with address ${userAddress}`);
+    user = { name:'Not updated', email:'Not updated', avatar: 'https://ipfs.io/ipfs/Qmex9htXkkkKTH5v1iCnD9WkxiViSTXoJJQmJBUgEyWzZx' }
+    res.status(StatusCodes.OK).json({user});
   }
   res.status(StatusCodes.OK).json({ user });
   // res.send('createUser');
