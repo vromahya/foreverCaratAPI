@@ -38,10 +38,20 @@ const updateUser = async (req, res) => {
   const {
     params: { id: userAddress },
   } = req;
-
-  const user = await User.findOneAndUpdate({ address: userAddress }, req.body, {
-    new: true,
-  });
+  const { name, email } = req.body;
+  const userUpdate = {
+    address: userAddress,
+    name: name,
+    email: email,
+  };
+  const user = await User.findOneAndUpdate(
+    { address: userAddress },
+    userUpdate,
+    {
+      new: true,
+      upsert: true,
+    }
+  );
   if (!user) {
     throw new NotFoundError(`No user with address ${userAddress}`);
   }
