@@ -18,8 +18,13 @@ const getUser = async (req, res) => {
     address: userAddress,
   });
   if (!user) {
-    user = { name:'Not updated', email:'Not updated', avatar: 'https://ipfs.io/ipfs/Qmex9htXkkkKTH5v1iCnD9WkxiViSTXoJJQmJBUgEyWzZx' }
-    res.status(StatusCodes.OK).json({user});
+    user = {
+      name: 'Not updated',
+      email: 'Not updated',
+      avatar:
+        'https://ipfs.io/ipfs/Qmex9htXkkkKTH5v1iCnD9WkxiViSTXoJJQmJBUgEyWzZx',
+    };
+    res.status(StatusCodes.OK).json({ user });
   }
   res.status(StatusCodes.OK).json({ user });
   // res.send('createUser');
@@ -39,11 +44,12 @@ const updateUser = async (req, res) => {
   const {
     params: { id: userAddress },
   } = req;
-  const { name, email } = req.body;
+  const { name, email, avatar } = req.body;
   const userUpdate = {
     address: userAddress,
     name: name,
     email: email,
+    avatar: avatar,
   };
   const user = await User.findOneAndUpdate(
     { address: userAddress },
