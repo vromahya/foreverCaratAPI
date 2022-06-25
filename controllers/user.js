@@ -18,7 +18,8 @@ const getUser = async (req, res) => {
     address: userAddress,
   });
   if (!user) {
-    res.status(StatusCodes.OK).json({ name:'Not updated', email:'Not updated', avatar: 'https://ipfs.io/ipfs/Qmex9htXkkkKTH5v1iCnD9WkxiViSTXoJJQmJBUgEyWzZx' });
+    user = { name:'Not updated', email:'Not updated', avatar: 'https://ipfs.io/ipfs/Qmex9htXkkkKTH5v1iCnD9WkxiViSTXoJJQmJBUgEyWzZx' }
+    res.status(StatusCodes.OK).json({user});
   }
   res.status(StatusCodes.OK).json({ user });
   // res.send('createUser');
