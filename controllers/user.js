@@ -14,7 +14,7 @@ const getUser = async (req, res) => {
     params: { id: userAddress },
   } = req;
   console.log(userAddress);
-  const user = await User.findOne({
+  let user = await User.findOne({
     address: userAddress,
   });
   if (!user) {
