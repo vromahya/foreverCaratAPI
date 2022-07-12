@@ -23,8 +23,7 @@ const UserSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default:
-        'https://gateway.pinata.cloud/ipfs/QmeK4BXjQUTNka1pRTmWjURDEGVXC7E8uEB8xUsD2DGz2c',
+      default: 'https://caratxchange.s3.ap-south-1.amazonaws.com/defa',
     },
     userInfo: {
       type: String,

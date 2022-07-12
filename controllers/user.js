@@ -20,8 +20,7 @@ const getUser = async (req, res) => {
     user = {
       name: 'Not updated',
       email: 'Not updated',
-      avatar:
-        'https://ipfs.io/ipfs/Qmex9htXkkkKTH5v1iCnD9WkxiViSTXoJJQmJBUgEyWzZx',
+      avatar: 'https://caratxchange.s3.ap-south-1.amazonaws.com/defa',
       userInfo: 'Not Updated',
     };
     res.status(StatusCodes.OK).json({ user });
