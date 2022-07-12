@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: 'https://caratxchange.s3.ap-south-1.amazonaws.com/defa',
+      default: 'https://caratxchange.s3.ap-south-1.amazonaws.com/default.jpg',
     },
     userInfo: {
       type: String,

@@ -20,7 +20,7 @@ const getUser = async (req, res) => {
     user = {
       name: 'Not updated',
       email: 'Not updated',
-      avatar: 'https://caratxchange.s3.ap-south-1.amazonaws.com/defa',
+      avatar: 'https://caratxchange.s3.ap-south-1.amazonaws.com/default.jpg',
       userInfo: 'Not Updated',
     };
     res.status(StatusCodes.OK).json({ user });
