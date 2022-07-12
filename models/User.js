@@ -26,6 +26,10 @@ const UserSchema = new mongoose.Schema(
       default:
         'https://gateway.pinata.cloud/ipfs/QmeK4BXjQUTNka1pRTmWjURDEGVXC7E8uEB8xUsD2DGz2c',
     },
+    userInfo: {
+      type: String,
+      default: 'Not updated',
+    },
   },
   { timestamps: true }
 );

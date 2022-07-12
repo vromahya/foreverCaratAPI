@@ -22,6 +22,7 @@ const getUser = async (req, res) => {
       email: 'Not updated',
       avatar:
         'https://ipfs.io/ipfs/Qmex9htXkkkKTH5v1iCnD9WkxiViSTXoJJQmJBUgEyWzZx',
+      userInfo: 'Not Updated',
     };
     res.status(StatusCodes.OK).json({ user });
   }
@@ -43,12 +44,13 @@ const updateUser = async (req, res) => {
   const {
     params: { id: userAddress },
   } = req;
-  const { name, email, avatar } = req.body;
+  const { name, email, avatar, userInfo } = req.body;
   const userUpdate = {
     address: userAddress,
     name: name,
     email: email,
     avatar: avatar,
+    userInfo: userInfo,
   };
   const user = await User.findOneAndUpdate(
     { address: userAddress },
