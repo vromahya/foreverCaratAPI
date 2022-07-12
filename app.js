@@ -10,6 +10,7 @@ const rateLimiter = require('express-rate-limit');
 const authRouter = require('./routes/auth');
 const queryRouter = require('./routes/query');
 const userRouter = require('./routes/user');
+const imageUploadRouter = require('./routes/imageUpload');
 // const blogRouter = require('./routes/blog');
 //connectDB
 const connectDB = require('./db/connect');
@@ -36,6 +37,7 @@ app.use(xss());
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/query', queryRouter);
 app.use('/api/v1/user', userRouter);
+app.use('/api/v1/sign_s3', imageUploadRouter);
 // app.use('/api/v1/blogs', blogRouter);
 
 app.use(notFoundMiddleware);
