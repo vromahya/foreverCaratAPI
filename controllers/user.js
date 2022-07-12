@@ -24,6 +24,7 @@ const getUser = async (req, res) => {
       userInfo: 'Not Updated',
     };
     res.status(StatusCodes.OK).json({ user });
+    return;
   }
   res.status(StatusCodes.OK).json({ user });
   // res.send('createUser');
