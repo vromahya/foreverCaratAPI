@@ -1,7 +1,7 @@
 const User = require('../models/User');
 
 const { StatusCodes } = require('http-status-codes');
-const { NotFoundError } = require('../errors');
+const { NotFoundError, BadRequestError } = require('../errors');
 
 const createUser = async (req, res) => {
   const user = await User.create(req.body);
@@ -65,9 +65,43 @@ const updateUser = async (req, res) => {
   }
   res.status(StatusCodes.OK).json({ user });
 };
+
+const addItemToWishlist = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+
+  const { tokenId } = req.body;
+
+  const user = await User.findOneAndUpdate(
+    { address: id },
+    { $push: { wishList: tokenId } },
+    {
+      new: true,
+      upsert: true,
+    }
+  );
+  res.status(StatusCodes.OK).json({ user });
+};
+const removeFromWishlist = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  const { tokenId } = req.body;
+
+  const user = await User.findOneAndUpdate(
+    { address: id },
+    { $pull: { wishList: tokenId } },
+    { safe: true, multi: false }
+  );
+  if (!user) throw new NotFoundError('Cannot remove');
+  res.status(StatusCodes.OK).json({ user });
+};
 module.exports = {
   createUser,
   getUser,
   deleteUser,
   updateUser,
+  addItemToWishlist,
+  removeFromWishlist,
 };
