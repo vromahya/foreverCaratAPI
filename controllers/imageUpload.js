@@ -15,7 +15,7 @@ const sign_s3 = async (req, res) => {
   const fileType = req.body.fileType;
 
   const randomID = parseInt(Math.random() * 10000000);
-  const Key = `${randomID}.jpg`;
+  const Key = `${randomID}.${fileType}`;
   // Set up the payload of what we are sending to the S3 api
   const s3Params = {
     Bucket: S3_BUCKET,
