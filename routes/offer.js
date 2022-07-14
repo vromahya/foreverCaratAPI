@@ -2,10 +2,16 @@ const express = require('express');
 
 const router = express.Router();
 
-const { postOffer, getOffers, getOffer } = require('../controllers/offer');
+const {
+  postOffer,
+  getOffersByUser,
+  getOffer,
+  getOffersByTokenId,
+} = require('../controllers/offer');
 
 router.route('/').post(postOffer);
-router.route('/:id').get(getOffers);
+router.route('/:id').get(getOffersByUser);
 router.route('/offer/:id').get(getOffer);
+router.route('/offerbyid/:id').get(getOffersByTokenId);
 
 module.exports = router;

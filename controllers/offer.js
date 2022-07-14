@@ -7,11 +7,12 @@ const postOffer = async (req, res) => {
   res.status(StatusCodes.OK).json({ offer });
 };
 
-const getOffers = async (req, res) => {
+const getOffersByUser = async (req, res) => {
   const {
-    params: { id: tokenId },
+    params: { id: address },
   } = req;
-  const offers = await Offer.find({ tokenId: tokenId });
+  console.log(address);
+  const offers = await Offer.find({ offerer: address });
   if (!offers) res.status(StatusCodes.NOT_FOUND).send('No offers found');
   res.status(StatusCodes.OK).json({ offers });
 };
@@ -23,5 +24,18 @@ const getOffer = async (req, res) => {
 
   res.status(StatusCodes.OK).json({ offer });
 };
+const getOffersByTokenId = async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  const offers = await Offer.find({ tokenId: id });
 
-module.exports = { postOffer, getOffers, getOffer };
+  if (!offers) throw new NotFoundError(`No offer with id ${id}`);
+
+  res.status(StatusCodes.OK).json({ offers });
+};
+module.exports = {
+  postOffer,
+  getOffersByUser,
+  getOffer,
+  getOffersByTokenId,
+};
