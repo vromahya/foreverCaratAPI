@@ -1,7 +1,7 @@
 const Seller = require('../models/Seller');
 const { StatusCodes } = require('http-status-codes');
 const { BadRequestError, UnauthenticatedError } = require('../errors');
-
+const jwt = require('jsonwebtoken');
 const register = async (req, res) => {
   const seller = await Seller.create({ ...req.body });
   const token = seller.createJWT();
@@ -28,8 +28,24 @@ const login = async (req, res) => {
   const token = seller.createJWT();
   res.status(StatusCodes.OK).json({ seller: { name: seller.name }, token });
 };
+const auth = async (req, res) => {
+  const { token } = req.body;
+
+  try {
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+
+    req.user = { userId: payload.userId, name: payload.name };
+    res
+      .status(StatusCodes.OK)
+      .json({ userId: payload.userId, name: payload.name, verified: true });
+  } catch (error) {
+    console.log(error);
+    throw new UnauthenticatedError('Authentication invalid');
+  }
+};
 
 module.exports = {
   register,
   login,
+  auth,
 };
