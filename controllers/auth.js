@@ -26,7 +26,9 @@ const login = async (req, res) => {
   }
   // compare password
   const token = seller.createJWT();
-  res.status(StatusCodes.OK).json({ seller: { name: seller.name }, token });
+  res
+    .status(StatusCodes.OK)
+    .json({ seller: { name: seller.name }, token, verified: true });
 };
 const auth = async (req, res) => {
   const { token } = req.body;
