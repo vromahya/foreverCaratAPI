@@ -4,10 +4,8 @@ const { BadRequestError, UnauthenticatedError } = require('../errors');
 const jwt = require('jsonwebtoken');
 const register = async (req, res) => {
   const seller = await Seller.create({ ...req.body });
-  const token = seller.createJWT();
-  res
-    .status(StatusCodes.CREATED)
-    .json({ seller: { name: seller.name }, token });
+
+  res.status(StatusCodes.CREATED).json({ seller });
 };
 
 const login = async (req, res) => {
@@ -26,9 +24,11 @@ const login = async (req, res) => {
   }
   // compare password
   const token = seller.createJWT();
-  res
-    .status(StatusCodes.OK)
-    .json({ seller: { name: seller.name }, token, verified: true });
+  res.status(StatusCodes.OK).json({
+    seller: { name: seller.name, address: seller.address, id: seller._id },
+    token,
+    verified: true,
+  });
 };
 const auth = async (req, res) => {
   const { token } = req.body;
@@ -46,8 +46,19 @@ const auth = async (req, res) => {
   }
 };
 
+const updateSellerAddress = async (req, res) => {
+  const { address, id } = req.body;
+
+  const seller = await Seller.findOneAndUpdate(
+    { _id: id },
+    { address: address }
+  );
+  res.status(StatusCodes.OK).json({ seller });
+};
+
 module.exports = {
   register,
   login,
   auth,
+  updateSellerAddress,
 };

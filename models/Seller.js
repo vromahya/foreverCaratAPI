@@ -23,6 +23,10 @@ const SellerSchema = new mongoose.Schema({
     required: [true, 'Please provide password'],
     minlength: 6,
   },
+  address: {
+    type: String,
+    required: [true, 'Please provide wallet address of the seller'],
+  },
 });
 
 SellerSchema.pre('save', async function () {
