@@ -11,7 +11,7 @@ const {
 
 router.post('/register', register);
 router.post('/login', login);
-router.get('/', auth);
+router.get('/:jwtToken', auth);
 router.post('/', updateSellerAddress);
 
 module.exports = router;
