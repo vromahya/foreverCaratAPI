@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "intricate-tempo-355007",
+  "private_key_id": "2b01ca5164afb878d169178a2e9234cba338f84e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJR0YO/ziJkte6\nDx3k/cPJIfeLhrEI0kzcUzgae5imwh4mTc8xtYSq/VrhC3EKc1rslP7V6yxco/nh\nRdahQfMQhrElhoE7QeFg8AFh0cE2a1LfOIOmoMC6AEbrx8GKPYDLGjpclZvOKm6d\nuviVK4RAYRVBdUGe1p9OYWNNdnjKCO2yHNOpGozucGfHBrlAXauKd7vLed3Qzp5K\nOXO0xEZSRrM/0ryF8OXfbSR/hmfwxzFELNcMNg5u/Jl8JbSZdoZjvhBxCT5Kpemg\ntETYFxbcl2FGX3pwazE67B+mGcQTInJwgYqK1Z65atQVEpxwBREjEZYisrwMFDfD\nEA3m5yzJAgMBAAECggEADpTVALehFShX7AD12bW/lgXZrNg2YYz4p/p4ZUTAb44/\nCGfZI4ECqi9+ArElQIxQUTTPDFjD5zcy3kzEqnyAWxli4nTOzmfsp6zjcL51GJfo\nUkcCFJNvOtpTyPd48CaZ+ry87yGgfqxIxLD7mrTjGRXfaBVSSmtCcbdw7fbv87TW\nfBXCffO2eY96UUHA2Gxhz4NnVol0DCSjueHTv4ICZR9pkoIeNdVFb28n3bJHI7Vs\nXrQL2V49t+sqEf7kndBaLM0RZLFzu0JqK97lfDmSXAKmNX6TyrJy/r7onSuxvVLF\n0SrAmtWjcA3NMkA2OFQPz/CT5QjFGvpG8XR+epcJwQKBgQDnjQnwnlUen71urVC4\nrIPjMi+FS7hQdSKSTuOm4f7h7zyvC4IPLBN1ZvzbOsAGuSraZidwAYWfa3gPfQWT\nTsJctIXUagD7aS4e1pHRGmqT5d6t9KxNR0HfeB50AmDhQd3ntLdhzVIWD9fIgvXw\nqohlFuT4S7o9EZrs8mWxnMaSoQKBgQDeh/NMhpMZqjDeuIQNlvqzqJknvdfRE6bF\nCPXsPaQB2pqv/6bX7Hmoq9jBCJeV9yi64e9Rv3O6bRYjS/o0XlGmrUdnDiUEr46M\n3DifAWGVtcmbKyiPFCV+gRffUV6MI8Bqi+C1yoJK33RulDu7Csy/49/zayzYVoIx\ngCAcyz0RKQKBgQDWdSeep1bY/UQ7LOTVllq047dlssLsKgEyF0T8PNaQNb8ztOnp\n2X3QP+mzts9BquCI1RJzx8UV6TiSx82RKOIVcNF+8gskz776qur1C41om//JiBLJ\npFTbf+pcshM+rn2zbApo1/zOGDBYMwtMsvWPA0xgt+qvQw4FpWAQx86W4QKBgB1z\n3O3J+foxnlo8Da5Gx1O0AuFRrRjNAwudDf+AgQ6Fwmd87LYzZD7Az+Vsn7OHjOp/\nMM+fCVApU/7D9Y+s1B29XW/0XU3rdnCKTSwuYJ4R+2cAJVQalIPTzjcOa/ccXEE9\n1jX5YZlLTfu8vtMYsNTM8j0jeEIB4SVwEc/9zk1RAoGAIHZRCcDxrc5lrBj04+Tv\n8Wz1o+BriW4PE3sPzxSBYv9ILJjFqYYaRQnU5HlJwQubZ3GbOkHO7oUwad4VJcwj\niplYcwrIcMybs03nd2QS0+GLf6BljS+2Fzr28OyKfWrO1qiMnd3iA038kjUmbuma\nLCpFM0SxVhj0FUy0tofE3sQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "newsletter-caratxchange@intricate-tempo-355007.iam.gserviceaccount.com",
+  "client_id": "117785729548379862307",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/newsletter-caratxchange%40intricate-tempo-355007.iam.gserviceaccount.com"
+}
