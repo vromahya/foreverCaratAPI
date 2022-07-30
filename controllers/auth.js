@@ -2,6 +2,7 @@ const Seller = require('../models/Seller');
 const { StatusCodes } = require('http-status-codes');
 const { BadRequestError, UnauthenticatedError } = require('../errors');
 const jwt = require('jsonwebtoken');
+
 const register = async (req, res) => {
   const seller = await Seller.create({ ...req.body });
   res.status(StatusCodes.CREATED).json({ seller });
@@ -38,6 +39,7 @@ const auth = async (req, res) => {
     res.status(StatusCodes.OK).json({ verified: true });
   } catch (error) {
     console.log(error);
+    res.status(StatusCodes.UNAUTHORIZED).json({ verified: false });
     throw new UnauthenticatedError('Authentication invalid');
   }
 };
@@ -52,9 +54,15 @@ const updateSellerAddress = async (req, res) => {
   res.status(StatusCodes.OK).json({ seller });
 };
 
+const getAllSellers = async (req, res) => {
+  const sellers = await Seller.find({});
+  res.status(StatusCodes.OK).json({ sellers });
+};
+
 module.exports = {
   register,
   login,
   auth,
   updateSellerAddress,
+  getAllSellers,
 };

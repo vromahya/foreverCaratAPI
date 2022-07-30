@@ -1,5 +1,7 @@
 require('dotenv').config();
+
 require('express-async-errors');
+
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
@@ -13,7 +15,9 @@ const userRouter = require('./routes/user');
 const imageUploadRouter = require('./routes/imageUpload');
 const offerRouter = require('./routes/offer');
 const newsletterRouter = require('./routes/newsletter');
-// const blogRouter = require('./routes/blog');
+
+
+
 //connectDB
 const connectDB = require('./db/connect');
 //routers
