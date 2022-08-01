@@ -1,3 +1,5 @@
+const { createHmac } = require('crypto');
+
 var aws = require('aws-sdk');
 require('dotenv').config(); // Configure dotenv to load in the .env file
 // Configure aws with your accessKeyId and your secretAccessKey
@@ -12,9 +14,16 @@ const S3_BUCKET = process.env.Bucket;
 const sign_s3 = async (req, res) => {
   const s3 = new aws.S3(); // Create a new instance of S3
 
-  const fileType = req.body.fileType;
+  const { fileType, fileName } = req.body;
 
-  const randomID = parseInt(Math.random() * 10000000);
+  const time = new Date().getTime().toString();
+  const ip = req.socket.remoteAddress.toString();
+
+  const str = `${fileName}${ip}${time}`;
+
+  const hmac = createHmac('sha256', process.env.JWT_SECRET);
+  const randomID = hmac.update(str).digest('base64url');
+
   const Key = `${randomID}.${fileType}`;
   // Set up the payload of what we are sending to the S3 api
   const s3Params = {

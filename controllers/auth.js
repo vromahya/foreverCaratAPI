@@ -1,5 +1,7 @@
 const Seller = require('../models/Seller');
+
 const { StatusCodes } = require('http-status-codes');
+
 const { BadRequestError, UnauthenticatedError } = require('../errors');
 const jwt = require('jsonwebtoken');
 
@@ -19,6 +21,7 @@ const login = async (req, res) => {
     throw new UnauthenticatedError('Invalid Credentials');
   }
   const isPasswordCorrect = await seller.comparePassword(password);
+
   if (!isPasswordCorrect) {
     throw new UnauthenticatedError('Invalid Credentials');
   }
